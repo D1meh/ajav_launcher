@@ -44,6 +44,8 @@ public class Coordinates {
 				break ;
 			case "HEI":
 				this.height += diff;
+				if (this.height > 100)
+					this.height = 100;
 				break ;
 			default:
 				break ;

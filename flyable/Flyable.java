@@ -7,4 +7,5 @@ public interface Flyable {
 	public void registerTower(WeatherTower weathertower);
 
 	public String getInfo();
+	public boolean isFlying();
 }

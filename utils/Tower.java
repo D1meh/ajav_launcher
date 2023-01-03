@@ -14,8 +14,14 @@ public class Tower {
 	}
 
 	public void register(Flyable flyable) {
-		this.observers.add(flyable);
 		Simulation.addToOutputString("Tower says: " + flyable.getInfo() + " registered to weather tower.\n");
+
+		if (!flyable.isFlying()) {
+			Simulation.addToOutputString(flyable.getInfo() + " is already landed.\n");
+			Simulation.addToOutputString("Tower says: " + flyable.getInfo() + " unregistered from weather tower.\n");
+		} else {
+			this.observers.add(flyable);
+		}
 	}
 
 	public void unregister(Flyable flyable) {

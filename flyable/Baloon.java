@@ -59,4 +59,8 @@ public class Baloon extends Aircraft implements Flyable {
 		return className + "#" + aircraftName + "(" + id + ")";
 	}
 
+	public boolean isFlying() {
+		return this.currentStatus == Status.FLYING;
+	}
+
 }

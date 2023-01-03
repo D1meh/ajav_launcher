@@ -58,4 +58,8 @@ public class JetPlane extends Aircraft implements Flyable {
 		long id = this.id;
 		return className + "#" + aircraftName + "(" + id + ")";
 	}
+
+	public boolean isFlying() {
+		return this.currentStatus == Status.FLYING;
+	}
 }
