@@ -26,7 +26,7 @@ public class Simulation {
 		if (!this.simFile.exists())
 			throw new IncorrectFileException("File Exception : File is invalid or does not exist");
 		if (!this.simFile.isFile())
-			throw new IncorrectFileException("File Exception : File is not an expect type of file (may be a folder)");
+			throw new IncorrectFileException("File Exception : File is not an expected type of file (may be a folder)");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			System.exit(1);
@@ -88,6 +88,14 @@ public class Simulation {
 			if (lineCounter == 0)
 				throw new IncorrectDataForAircraftDescription("Data Exception : No line found for aircraft description");
 
+		} catch (NumberFormatException e) {
+			try {
+				throw new IncorrectDataForAircraftDescription("Data Exception : Incorrect data for Aircraft Description"); 
+			} catch (Exception f) {
+				System.out.println(f.getMessage());
+				System.exit(1);
+			}
+
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			System.exit(1);
@@ -98,6 +106,7 @@ public class Simulation {
 
 		for (int i = 0; i < this.nbOfSim; i++) {
 			this.wTower.changeWeather();
+			this.wTower.removeFlyable();
 		}
 	}
 
